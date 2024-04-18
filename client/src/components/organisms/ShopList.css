@@ -1,0 +1,12 @@
+.container {
+    padding: 5px;
+    text-align: left;
+    font-size: 15pt;
+}
+
+.link {
+    color: purple;
+}
+.link:hover {
+    text-decoration: underline;
+}

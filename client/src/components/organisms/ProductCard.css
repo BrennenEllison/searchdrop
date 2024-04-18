@@ -1,0 +1,42 @@
+
+.cardContainer{
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    height: 300px;
+    width: 210px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.cardContainer:hover {
+    cursor: pointer;
+    border: 2px solid orange;
+}
+
+
+.title{
+    color: black;
+    text-align: left;
+    overflow: hidden;
+}
+
+.price {
+    align-self: left;
+    font-size: 10pt;
+}
+
+
+.productBtn {
+    width: 100%;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-style: bold;
+    height: 20px;
+}
+.test {
+    display: none;
+}

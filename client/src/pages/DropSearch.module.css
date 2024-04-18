@@ -1,0 +1,123 @@
+.main {
+    width: 100%;
+    margin: auto;
+    margin-top:50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+}
+
+.introText {
+
+}
+
+.searchContainer {
+    
+}
+
+.searchController {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.searchSelector {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+}
+
+.searchSelector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.searchSelector select option{
+    cursor: pointer;
+}
+
+.searchSelector select:focus {
+    outline: none;
+}
+
+.searchSelector::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 400px;
+}
+.searchInput input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.searchInpu input:focus {
+    outline: none;
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+}
+
+
+.searchBtn button{
+    border: none;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(0, 162, 255);
+    color: white;
+    font-size: 17px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+/* Response box */
+.resContainer {
+
+}
+.resBox{
+    background-color: var(--secondary-bg);
+    height: auto;
+    padding: 5px;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 5px;
+    justify-content: center;
+}
+.resTitle{
+    text-align: left;
+}
+.resResult {
+    overflow: hidden;
+    background-color: var(--secondary-bg);
+    height: auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
