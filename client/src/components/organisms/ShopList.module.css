@@ -2,11 +2,19 @@
     padding: 5px;
     text-align: left;
     font-size: 15pt;
+    border-bottom: 2px solid lightgray;
+    margin: 10px 30px 10px 30px;
+    padding: 10px;
 }
 
 .link {
-    color: purple;
+    color: var(--link-primary);
 }
 .link:hover {
     text-decoration: underline;
 }
+
+.linkText {
+    color: var(--primary-text);
+}
+

@@ -5,6 +5,8 @@ import { useState } from 'react';
 import {searchByUrl, searchByName, selectionSearch } from '../services/api.js';
 
 import ResultContainer from '../components/organisms/ResultContainer.jsx';
+import Spinner from '../components/atoms/Spinner.jsx';
+import LoadingIcon from '../components/atoms/LoadingIcon.jsx';
 
 
 function DropSearchScreen() {
@@ -70,10 +72,10 @@ function DropSearchScreen() {
 
     return (
         <div className={styles.main}>
-            <div>
-                <h1>Drop Search</h1>
-                <p className={styles.introText}>The reverse product searching tool to find companies for competitor analysis and business intelligence.</p>
-                <p className={styles.introText}>Please Search Responsibly</p>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.headerTitle}>Drop Search</h1>
+                <p className={styles.headerSubText}>The reverse product searching tool to find companies for competitor analysis and business intelligence.</p>
+                <p className={styles.headerSubText}>Please Search Responsibly</p>
             </div>
             <div className={styles.searchContainer}>
                 <form onSubmit={(e) => submitHandler(e)} >
@@ -94,12 +96,14 @@ function DropSearchScreen() {
                 </form>
             </div>
             {displayResultBox === true ?
-            isLoading == true ? <h1>LOADING</h1> : 
+            isLoading == true ? <><LoadingIcon /></> : 
             <div>
                 <div className={styles.resContainer}>
-                <h1 className={styles.resTitle}>Results:</h1>
-                {displayBackBtn == true ? <button onClick={displayProductList}>Product List</button> : <></>}
                 <div className={styles.resResult}>
+                    <div className={styles.resBtnContainer}>
+                        <h1 className={styles.resTitle}>Results:</h1>
+                        {displayBackBtn == true ? <button onClick={displayProductList} className={styles.backBtn}>Product List</button> : <></>}
+                    </div>
                     <ResultContainer select={display} searchResult={searchResult} productList={productList} selectionList={listSelectionItems} />
                 </div>
                 </div>

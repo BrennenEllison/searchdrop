@@ -1,3 +1,5 @@
+
+
 .main {
     width: 100%;
     margin: auto;
@@ -11,12 +13,21 @@
     text-align: center;
 }
 
-.introText {
 
+/* Header */
+.headerContainer{
+    padding: 20px;
+    opacity: .9;
+}
+.headerTitle{
+    font-weight: var(--title-weight);
+    font-style: var(--title-style);
+    font-size: 40pt;
+    color: var(--primary-text);
 }
 
-.searchContainer {
-    
+.headerSubText {
+    color: var(--primary-text)
 }
 
 .searchController {
@@ -96,18 +107,7 @@
 }
 
 /* Response box */
-.resContainer {
 
-}
-.resBox{
-    background-color: var(--secondary-bg);
-    height: auto;
-    padding: 5px;
-    display: flex;
-    flex-wrap:wrap;
-    gap: 5px;
-    justify-content: center;
-}
 .resTitle{
     text-align: left;
 }
@@ -120,4 +120,31 @@
     flex-direction: column;
     gap: 5px;
     justify-content: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.resBtnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+}
+
+.backBtn{
+    width: 150px;
+    padding: 10px;
+    background: none;
+    border: 2px solid var(--btn-primary);
+    color: rgb(0, 162, 255);
+    font-style: bold;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.backBtn:hover{
+    background: var(--btn-primary);
+    color: white;
 }

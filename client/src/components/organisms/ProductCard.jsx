@@ -7,19 +7,21 @@ const ProductCard = ({image, name, price, sku, action}) => {
     }
 
     return (
+        <button onClick={testing}type='submit' className={styles.productBtn}>
         <div className={styles.cardContainer}>
-            <button onClick={testing}type='submit'>
             <div className={styles}>
                 <img src={image} alt="product-image" height="200" width="200" className={styles.productImg} priority="false"/>
             </div>
-            <div className={styles.title}>
-                <h4>{name}</h4>
+            <div className={styles.contentContainer}>
+                <div className={styles.title}>
+                    <h4>{name}</h4>
+                </div>
+                <div className={styles.priceContainer}>
+                    <h6 className={styles.price}>${price}</h6>
+                </div>
             </div>
-            <div >
-                <h6 className={styles.price}>${price}</h6>
-            </div>
-            </button>
         </div>
+        </button>
     )
 }
 

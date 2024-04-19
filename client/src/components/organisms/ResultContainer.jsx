@@ -11,7 +11,7 @@ function ResultContainer({select, searchResult, productList, selectionList}) {
 
     if (select == 0)
     return (
-        <div>
+        <div className={styles.searchResultContainer}>
             {searchResult.listData?.map((item) => (
                     <ShopList 
                     key={item.title}

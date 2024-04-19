@@ -4,7 +4,7 @@ const ShopList = ({link, title}) => {
     return (
         <div className={styles.container}>
             <a className={styles.link} target="_blank" href={link}>{title}</a>
-            <p>{link}</p>
+            <p className={styles.linkText}>{link}</p>
         </div>
     )
 }
