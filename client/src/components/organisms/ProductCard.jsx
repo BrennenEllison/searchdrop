@@ -1,9 +1,14 @@
+import styles from './ProductCard.module.css';
+
 const ProductCard = ({image, name, price, sku, action}) => {
 
+    function testing(){
+        action(name, sku);
+    }
 
     return (
-        <form action={action} className={styles.cardContainer}>
-            <button type='submit'>
+        <div className={styles.cardContainer}>
+            <button onClick={testing}type='submit'>
             <div className={styles}>
                 <img src={image} alt="product-image" height="200" width="200" className={styles.productImg} priority="false"/>
             </div>
@@ -13,11 +18,9 @@ const ProductCard = ({image, name, price, sku, action}) => {
             <div >
                 <h6 className={styles.price}>${price}</h6>
             </div>
-            <input type="text" name="sku" readOnly={true} value={sku} className={styles.test} />
-            <input type="text" name="productName" readOnly={true} value={name} className={styles.test} />
             </button>
-        </form>
+        </div>
     )
 }
 
-export default ProductCard
+export default ProductCard;

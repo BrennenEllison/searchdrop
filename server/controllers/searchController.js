@@ -95,14 +95,19 @@ const fixImageUrl = (list) => {
             list[i].productImage = '/images/image_not_found.jpg';
         }
 
-        //logic is dumb, maybe use switch case
-        if(hostname == "cc-west-usa.cjdropshipping.com")
-        {}
-        else if(hostname == "oss.cjdropshipping.com")
-        {}
-        else {
-            // console.log("host name not on list", hostname, "datatype:", typeof hostname);
-            list[i].productImage = '/images/image_not_found.jpg';
+        switch(hostname){
+            case "cc-west-usa.cjdropshipping.com":
+                break;
+            case "oss.cjdropshipping.com":
+                break;
+            case "oss-cf.cjdropshipping.com":
+                break;
+            case "cbu01.alicdn.com":
+                break;
+            case "cf.cjdropshipping.com":
+                break;
+            default:
+                list[i].productImage = '/image_not_found.jpg';
         }
     }
 

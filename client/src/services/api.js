@@ -3,14 +3,6 @@ const apiEndpoint = 'http://localhost:5000/api';
 async function fetchHandler(select, search){
     let result;
     const selection = parseInt(select);
-    // switch(selection){
-    //     case 0:
-    //         console.log("searching URL")
-    //        // result = await searchByUrl(search);
-    //     case 1:
-    //         console.log("in da hole");
-    //         //result = await searchByName(search);
-    // }
     if (selection == 0)
     {result = await searchByUrl(search);}
     else if(selection == 1)
@@ -58,6 +50,22 @@ async function searchByUrl(parameter){
     }
 }
 
+async function selectionSearch(name, sku){
+    try{
+        const response = await fetch(`${apiEndpoint}/search/selection?productName=${name}&sku=${sku}`, {
+            method: 'GET',
+            headers: {"Content-Type": "application/json"},
+        });
+    if (response.ok) {
+        return await response.json();
+    }
+    else {
+        return null;
+    }}
+    catch(error){
+        console.log("Error in selection search", error)
+    }
+}
 
 
-export {fetchHandler};
+export {fetchHandler, searchByName, searchByUrl, selectionSearch };

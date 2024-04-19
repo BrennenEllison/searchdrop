@@ -1,0 +1,10 @@
+.productContainer{
+    background-color: var(--secondary-bg);
+    height: auto;
+    padding: 5px;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 5px;
+    justify-content: center;
+}
+

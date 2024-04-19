@@ -1,12 +1,12 @@
-import Link from "next/link";
+import styles from './ShopList.module.css';
 
 const ShopList = ({link, title}) => {
     return (
         <div className={styles.container}>
-            <Link className={styles.link} target="_blank" href={link}>{title}</Link>
+            <a className={styles.link} target="_blank" href={link}>{title}</a>
             <p>{link}</p>
         </div>
     )
 }
 
-export default ShopList
+export default ShopList;
