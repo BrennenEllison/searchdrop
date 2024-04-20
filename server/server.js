@@ -4,7 +4,8 @@ import router from './routes.js';
 import cors from 'cors';
 import { notFound, errorHandler} from './middleware/errorMiddleware.js';
 
-dotenv.config();
+if (process.env.NODE_ENV == 'development'){
+    dotenv.config();}
 
 const app = express();
 app.use(cors({origin: process.env.ORIGIN}));
