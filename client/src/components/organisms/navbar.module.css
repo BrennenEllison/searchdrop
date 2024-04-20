@@ -1,1 +1,21 @@
-.nav{background: black;}
+.navContainer{
+    padding: 15px;
+    background: black;
+}
+
+.nav{
+    display: flex; 
+    justify-content: center;
+    gap: 30px;
+    
+}
+
+.link{
+    color: white;
+    font-weight: 500;
+    font-size: 12pt;
+}
+
+.link:hover{
+    color: orange;
+}

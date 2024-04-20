@@ -10,6 +10,8 @@ const app = express();
 app.use(cors({origin: process.env.ORIGIN}));
 const port = process.env.PORT;
 
+app.use(express.static("dist"));
+
 //parsing
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

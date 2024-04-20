@@ -1,4 +1,4 @@
-const apiEndpoint = 'http://localhost:5000/api';
+const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:5000/api"
 
 async function fetchHandler(select, search){
     let result;
@@ -17,7 +17,7 @@ async function fetchHandler(select, search){
 async function searchByName(parameter){
     console.log(parameter)
     try {
-        const response = await fetch(`${apiEndpoint}/search?productName=${parameter}`, {
+        const response = await fetch(`${baseURL}/search?productName=${parameter}`, {
         method: 'GET',
         headers: {"Content-Type": "application/json"},
     });
@@ -35,7 +35,7 @@ async function searchByName(parameter){
 
 async function searchByUrl(parameter){
     try{
-        const response = await fetch(`${apiEndpoint}/search/url?url=${parameter}`, {
+        const response = await fetch(`${baseURL}/search/url?url=${parameter}`, {
         method: 'GET',
         headers: {"Content-Type": "application/json"},
     });
@@ -52,7 +52,7 @@ async function searchByUrl(parameter){
 
 async function selectionSearch(name, sku){
     try{
-        const response = await fetch(`${apiEndpoint}/search/selection?productName=${name}&sku=${sku}`, {
+        const response = await fetch(`${baseURL}/search/selection?productName=${name}&sku=${sku}`, {
             method: 'GET',
             headers: {"Content-Type": "application/json"},
         });
