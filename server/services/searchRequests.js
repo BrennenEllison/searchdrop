@@ -9,7 +9,7 @@ const token = process.env.ACCESS_TOKEN
 //Not very accurate
 async function getProductList(productName){
     try {
-        const response = await axios.get(`https://developers.cjdropshipping.com/api2.0/v1/product/list?productNameEn=${productName}`, {
+        const response = await axios.get(`https://developers.cjdropshipping.com/api2.0/v1/product/list?productNameEn=${productName}&pageSize=20`, {
             headers:{
                 'Content-Type': 'application-json',
                 'CJ-Access-Token': `${token}`

@@ -87,7 +87,7 @@
     border: 1px solid #ccc;
     font-size: 16px;
 }
-.searchInpu input:focus {
+.searchInput input:focus {
     outline: none;
     border-color: dodgerblue;
     box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
@@ -147,4 +147,9 @@
 .backBtn:hover{
     background: var(--btn-primary);
     color: white;
+}
+
+.errorMessage{
+    color: rgb(223, 0, 0);
+    font-size: 15pt;
 }

@@ -7,7 +7,21 @@
     gap: 10px;
     justify-content: center;
 }
-.searchResultContainer{
-    border-bottom: 2px solid lightgray;
+
+.emptyContainer {
+    display: flex;
+    justify-content: center;
 }
 
+.emptyCard {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.emptyCard h1{
+    margin: 10px;
+}
+.emptyCard h3{
+    border-bottom: 2px solid lightgray;
+    padding: 10px;
+}

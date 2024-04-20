@@ -14,7 +14,7 @@ const nameSearchHandler = asyncHandler(async (req, res) => {
 const selectionSearchHandler = asyncHandler(async (req,res) => {
     const {sku, productName} = req.query;
     const name = productName.replace(/-/g, '+');
-    const shopList = await getFirstPage(sku, productName);
+    const shopList = await getFirstPage(sku, name);
     const editedList = validateUrl(shopList);
 
     if(editedList){
@@ -117,15 +117,35 @@ const fixImageUrl = (list) => {
 const validateUrl = (list) => {
     //confirm https
     const x = /^https:\/\//;
-    //is a google maps url
-    const y = /^https:\/\/maps\.google\.com/;
-    // const z = /^(?:https?:\/\/).+/i;
+
+    //gets the host name from the url
+    const hostnameRegex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/;
+
+    //acceptable urls must inclue
+    const regex = /\/(product|products|item|shop|itm)/;
+
     let r = [];
     
     if(list.length){
         for (let i = 0; i < list.length; i++) {
-            if((!y.test(list[i].link)) && x.test(list[i].link)){
+            if( x.test(list[i].link) && list[i].link.match(regex) ){
                 r.push(list[i]);
+            }
+            else if(null){
+                const matches = list[i].link.match(hostnameRegex);
+                const hostname = matches ? matches[1] : null;
+                switch(hostname){
+                    case null:
+                        r.push(list[i]);
+                    case "walmart.com":
+                        r.push(list[i]);
+                    case "amazon.com":
+                        r.push(list[i]);
+                    case "aliexpress.com":
+                        r.push(list[i]);
+                    default:
+                        continue;
+                }
             }
         }
     }
