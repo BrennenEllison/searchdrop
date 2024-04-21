@@ -14,14 +14,6 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/Home",
-        element: <App />
-      },
-      {
-        path: "dropsearch",
-        element: <DropSearchScreen />
-      },
     ],
   },
 ]);

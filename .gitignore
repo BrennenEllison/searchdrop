@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 drop_search.code-workspace
+
+tests
