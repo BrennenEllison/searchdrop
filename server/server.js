@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV == 'development'){
     dotenv.config();
 }
-app.use(cors({origin: process.env.ORIGIN}));
+    app.use(cors({origin: process.env.ORIGIN}));
 
 //parsing
 app.use(express.json());
@@ -23,6 +23,7 @@ app.use('/api', router);
 //middleware
 app.use(notFound);
 app.use(errorHandler);
+
 
 
 app.listen(port, () => {

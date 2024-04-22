@@ -114,27 +114,10 @@ const validateUrl = (list) => {
     const regex = /\/(product|products|item|shop|itm)/;
 
     let r = [];
-    
     if(list.length){
         for (let i = 0; i < list.length; i++) {
             if( x.test(list[i].link) && list[i].link.match(regex) ){
                 r.push(list[i]);
-            }
-            else {
-                const matches = list[i].link.match(hostnameRegex);
-                const hostname = matches ? matches[1] : null;
-                switch(hostname){
-                    case null:
-                        r.push(list[i]);
-                    case "walmart.com":
-                        r.push(list[i]);
-                    case "amazon.com":
-                        r.push(list[i]);
-                    case "aliexpress.com":
-                        r.push(list[i]);
-                    default:
-                        continue;
-                }
             }
         }
     }
