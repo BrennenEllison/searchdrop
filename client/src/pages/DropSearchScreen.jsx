@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './DropSearch.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import {searchByUrl, searchByName, selectionSearch } from '../services/api.js';
 
 import ResultContainer from '../components/organisms/ResultContainer.jsx';
-import Spinner from '../components/atoms/Spinner.jsx';
 import LoadingIcon from '../components/atoms/LoadingIcon.jsx';
 
 
@@ -29,7 +28,6 @@ function DropSearchScreen() {
 
     async function submitHandler(e){
         e.preventDefault();
-        //set original state for components
         setErrorMessage(prev => prev = "");
         setResultBox(false);
         setIsLoading(true);
@@ -57,13 +55,8 @@ function DropSearchScreen() {
     }
 
     function validateSearch(search, select){
-        const xssPattern = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
         const acceptPattern = /^(?!\s+$)[\w\s\-]+$/;
         if(select == 1){
-            if (xssPattern.test(search)) {
-                setErrorMessage(prev => prev = "Unacceptable Code lol");
-                return false;
-            }
             if (acceptPattern.test(search)) {
                 return true;
             }
@@ -100,8 +93,6 @@ function DropSearchScreen() {
             setIsLoading(false);
         }, 500);
     }
-
-console.log(errorMessage);
 
     return (
         <div className={styles.main}>

@@ -32,42 +32,35 @@ const urlSearchHandler = asyncHandler(async (req, res) => {
     let result;
     let shopList;
 
-    const getName = url.match(/\/product\/([^\/]+)-p-/);
-    //convert into a url 
-    let productName = getName ? getName[1].replace(/-/g, '+') : null;
-
     const matches = url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/);
     if (matches && matches.length > 1) {
     hostname = matches[1];
     }
     switch(hostname) {
         case "cjdropshipping.com":
-            let matchFound = false;
             const match = url.match(/p-(\d+)\.html(?:\?.*)?$/); 
-            if (match) {
+            const altMatch = url.match(/p-(\w{8}-\w{4}-\w{4}-\w{4}-\w{12})\.html/);
+            if(match){
                 id = match[1];
-                matchFound = true;
-            }
-            if (!matchFound){
-                const altMatch = url.match(/p-(\w{8}-\w{4}-\w{4}-\w{4}-\w{12})\.html/);
-                if(altMatch) {
-                    id = altMatch[1]
-                    matchFound = true;
-                }
-            }
-            if (matchFound){
                 result = await getListByID(id)
             }
-            else {
-                console.log("no matches found for this website");
+            else if(altMatch){
+                id = altMatch[1];
+                result = await getListByID(id)
+            }
+            else{
+                console.log("Id not found");
             }
             break;
-        default: //will add additional websites when integration is available
-            console.log("no match found");
-    }
+        default:
+                console.log("No Matches found");
+                break;
+        }
+
+    const getName = url.match(/\/product\/([^\/]+)-p-/);
+    let productName = getName ? getName[1].replace(/-/g, '+') : null;
 
     if(result){
-        // parse google search to find websites selling similar products
         const {data} = result;
         shopList = await getFirstPage(data.productSku, productName);
         const editedList = validateUrl(shopList);
@@ -92,7 +85,7 @@ const fixImageUrl = (list) => {
         }
         else {
             console.log("no hostname specified");
-            list[i].productImage = '/images/image_not_found.jpg';
+            list[i].productImage = '/image_not_found.jpg';
         }
 
         switch(hostname){
@@ -117,11 +110,7 @@ const fixImageUrl = (list) => {
 const validateUrl = (list) => {
     //confirm https
     const x = /^https:\/\//;
-
-    //gets the host name from the url
-    const hostnameRegex = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/;
-
-    //acceptable urls must inclue
+    //acceptable urls must include
     const regex = /\/(product|products|item|shop|itm)/;
 
     let r = [];
@@ -131,7 +120,7 @@ const validateUrl = (list) => {
             if( x.test(list[i].link) && list[i].link.match(regex) ){
                 r.push(list[i]);
             }
-            else if(null){
+            else {
                 const matches = list[i].link.match(hostnameRegex);
                 const hostname = matches ? matches[1] : null;
                 switch(hostname){

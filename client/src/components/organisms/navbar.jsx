@@ -1,4 +1,3 @@
-import Button from '../atoms/button.jsx'
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.css';
 

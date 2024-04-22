@@ -43,7 +43,6 @@ function ResultContainer({select, searchResult, productList, selectionList}) {
                     <h1>No Results Found</h1>
                     <h3>Try searching for a different product</h3>
                     </div>
-
             </div>
         )
     }
